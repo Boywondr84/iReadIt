@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS iReadit_db;
+
+CREATE DATABASE iReadit_db;

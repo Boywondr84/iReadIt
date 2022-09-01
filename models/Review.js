@@ -43,4 +43,4 @@ Review.init(
   }
 );
 
-module.exports = Comment;
+module.exports = Review;

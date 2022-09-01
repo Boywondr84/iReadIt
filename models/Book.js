@@ -35,28 +35,3 @@ Book.init(
 );
 
 module.exports = Book;
-
-
-// attributes: [
-//     "id",
-//     "title",
-//     "user_id",
-//     "created_at",
-//   ],
-//   include: [
-//     {
-//       model: Review,
-//       attributes: [
-//         "id",
-//         "review_text",
-//         "book_id",
-//         "user_id",
-//         "created_at",
-//       ],
-//       include: {
-//         model: User,
-//         attributes: ["username"],
-//       },
-//     },
-//   ]
-// };

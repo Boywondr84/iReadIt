@@ -28,3 +28,10 @@ const Review = require("./Review");
     foreignKey:"user_id",
     onDelete:"SET NULL"
 });
+
+Book.belongsTo(User, {
+    foreignKey:"user_id",
+    onDelete:"SET NULL"
+});
+
+module.exports={ User, Book, Review};

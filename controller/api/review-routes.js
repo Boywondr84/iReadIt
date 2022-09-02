@@ -102,7 +102,7 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbDData) => {
+    .then((dbData) => {
       if (!dbData) {
         res.status(404).json({ message: "no review with that id found!" });
       }

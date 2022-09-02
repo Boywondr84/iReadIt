@@ -2,11 +2,10 @@
         <div class="book-title">
        {{title}}
        </div>
-       
+
         <div class="user-info">
         created by {{user.username}} on {{created_at}}
          </div>
-       
-        <div class="card-body bg-success bg-opacity-50">
-        <p class="text-white ">{{post_content}}</p>
+         |
+       <a href="/book/{{id}}">{{reviews.length}} review(s)</a>
     </article>

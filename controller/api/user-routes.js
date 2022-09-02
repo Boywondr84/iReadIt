@@ -29,4 +29,23 @@ router.post('/', (req, res) => {
     });
 });
 
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: "User not found" });
+            return;
+
+            // add validate password logic here later
+
+        } else {
+            res.json(dbUserData);
+        }
+    });
+});
+
 module.exports = router;

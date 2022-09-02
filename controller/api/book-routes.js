@@ -34,7 +34,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   Book.create({
     title: req.body.title,
-    user_id: req.session.user_id,
+    user_id: req.body.user_id
+    // user_id: req.session.user_id,
   })
     .then((dbData) => res.json(dbData))
     .catch((err) => {

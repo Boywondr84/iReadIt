@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+  /* a {
+    text-decoration: none;
+    color: #aa1931;
+    font-weight: bold;
+    transition: color .1s;
+  } */
+
+  button {
+
+
+  }
+
+  textarea {
+
+
+  }
+
+  /* from handlebars files =============== */
+  .signup-form {
+
+  }
+
+  .login-form {
+
+  }
+
+  .book-list {
+
+  }
+
+  #new-book-form {
+
+  }
+
+  /* from partials  =================*/
+
+  .review {
+
+  }
+
+  .meta {
+
+  }
+  
+  .text {
+
+  }
+
+  .book {
+
+  }
+  .book-title {
+
+  }
+
+  .user-info {
+
+  }

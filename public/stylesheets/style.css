@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
   }
 
@@ -10,7 +10,7 @@
     transition: color .1s;
   } */
 
-  button {
+  /* button {
 
 
   }
@@ -18,10 +18,10 @@
   textarea {
 
 
-  }
+  } */
 
   /* from handlebars files =============== */
-  .signup-form {
+  /* .signup-form {
 
   }
 
@@ -35,11 +35,11 @@
 
   #new-book-form {
 
-  }
+  } */
 
   /* from partials  =================*/
 
-  .review {
+  /* .review {
 
   }
 
@@ -60,4 +60,4 @@
 
   .user-info {
 
-  }
+  } */ 

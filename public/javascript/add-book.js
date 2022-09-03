@@ -1,7 +1,7 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="post-title"]').value;
+    const title = document.querySelector('input[name="book-title"]').value;
     const post_url = document.querySelector('input[name="post-url"]').value;
   
     const response = await fetch(`/api/posts`, {
@@ -47,6 +47,19 @@ async function newFormHandler(event) {
 //     </form>
 // </div>
 
+// partial book handlebars =====================
+
+// {/<article class="book"></article>
+// <div class="book-title">
+// {{title}}
+// </div>
+
+// <div class="user-info">
+// created by {{user.username}} on {{created_at}}
+//  </div>
+//  |
+// <a href="/book/{{id}}">{{reviews.length}} review(s)</a>
+// </article> }
 
 // addpost in mod 
 

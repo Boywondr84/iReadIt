@@ -6,7 +6,7 @@
 //     const id = window.location.toString().split('/')[
 //       window.location.toString().split('/').length - 1
 //     ];
-//     const response = await fetch(`/api/posts/${id}`, {
+//     const response = await fetch(`/api/reviews/${id}`, {
 //       method: 'DELETE'
 //     });
   
@@ -18,3 +18,18 @@
 //   }
   
 //   document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+
+// review partial 
+
+// <div class="reviews">
+//     {{#each this}}
+//     <section class="review">
+//     <div class="meta">
+//       {{user.username}} on {{created_at}}
+//     </div>
+//     <div class="text">
+//       {{review_text}}
+//     </div>
+//   </section>
+//   {{/each}}
+// </div>

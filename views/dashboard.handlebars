@@ -1,16 +1,17 @@
 <!--all posts for logged in user-->
+{{#if books.length}}
 <section>
     <h1>My Book Dashboard</h1>
     <ul>
+        {{#each books as |book|}}
         <li>
-            <!--book partial here-->
-
+            {{>books book}}
             
         </li>
+        {{/each}}
     </ul>
 </section>
-
-
+{{/if}}
 <div>
     <a href="/dashboard/" class="add-link">+ Add A Book</a>
 </div>

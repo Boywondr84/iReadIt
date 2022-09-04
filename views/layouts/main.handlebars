@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iReadIt</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/css/uikit.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -12,24 +13,23 @@
     <div>
         <header>
             <h1>
-                <a href="/">iReadIt</a>
+                <a class="uk-link-text" href="/">iReadIt</a>
             </h1>
 
-            <nav>
-                <a href="/">Home</a>
-                {{!-- {{#if loggedIn}} --}}
-                <a href="/dashboard">Dashboard</a>
-                <button id="submit">Logout</button>
-                {{!-- {{else}} --}}
-                <a href="/login">Login</a>
-                {{!-- {{/if}} --}}
+            <nav class= "uk-breadcrumbs">
+                <ul class="uk-navbar-center">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><button class="uk-button uk-button-text" id="submit">Logout</button></li>
+                </ul>
             </nav>
         </header>
 
         <main>
             {{{body}}}
         </main>
-        <footer>
+        <footer uk-sticky="position: bottom">
             Copyright 2022
         </footer>
     </div>

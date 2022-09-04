@@ -17,7 +17,7 @@ h1 {
 }
 
 .uk-button {
-    color: rgb(195, 65, 45);
+    color: rgb(66, 113, 234);
     font-size: 16.5px;
 }
 
@@ -63,6 +63,7 @@ h2 {
     height: 120px;
     margin-bottom: 210px;
     margin-right: 12%;
+    
 }
 
 .signup-form label {
@@ -139,3 +140,7 @@ footer {
     margin-left: 3%;
     margin-top: 3%;
 }
+
+/* .uk-card {
+  color:blue
+} */

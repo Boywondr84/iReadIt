@@ -1,17 +1,53 @@
 <!--all posts for logged in user-->
-{{#if books.length}}
-<section>
+{{!-- {{#if books.length}} --}}
+{{!-- <section> --}}
     <h1>My Book Dashboard</h1>
+    <section class="uk-flex-inline">
+        <form class="new-book-form">
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <div>
+                    <label for="book-title" class="book-title">Book Title:</label>
+                    <input type="text" id="book-title" name="book-title" />
+                </div>
+
+                <div>
+                    <label for="author-name" class="author-name">Author:</label>
+                    <input type="text" id="author-name" name="author-name" />
+                </div>
+            </div>
+        </form>
+
+            <div>
+                <button class="uk-button uk-button-link uk-button-large" id="book-button" type="submit"><a href="/dashboard/"> + Add A Book</button></a>
+                {{!-- <a href="/dashboard/" class="add-link" id="add-book">+ Add A Book</a> --}}
+            </div>
+
+        {{!-- Reviews on a differenct page? --}}
+        {{!-- <form class="review-form">
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <div>
+                    <p><label for="book-review" class="book-review">Review</label></p>
+                    <textarea id="book-review" name="book-review" rows="6" columns="60"></textarea>
+                </div>
+            </div>
+        </form> --}}
+
+        {{!-- <form class="book-button">
+            <button class="uk-button uk-button-text uk-button-large" type="submit" class="book-btn">Add Book</button>
+        </form> --}}
+    </section>
     <ul>
         {{#each books as |book|}}
         <li>
             {{>books book}}
-            
+
         </li>
         {{/each}}
     </ul>
 </section>
-{{/if}}
-<div>
+{{!-- {{/if}} --}}
+{{!-- <div>
     <a href="/dashboard/" class="add-link">+ Add A Book</a>
-</div>
+</div> --}}
+
+<script src="/javascript/add-book.js"></script>

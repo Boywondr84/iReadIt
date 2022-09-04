@@ -1,7 +1,7 @@
-INSERT INTO books(title)
+INSERT INTO books(id,title)
 VALUES
-    ("Thomas the Train"),
-    ("What We do in the shadows");
+    (1, "Thomas the Train"),
+    (2, "What We do in the shadows");
 
 
 INSERT INTO reviews(review_text, user_id, book_id) 

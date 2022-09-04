@@ -3,8 +3,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // create our Book model
-class Book extends Model{} 
-        
+class Book extends Model {}
+
 // create fields/columns for Book model
 Book.init(
   {
@@ -15,6 +15,10 @@ Book.init(
       autoIncrement: true,
     },
     title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    author: {
       type: DataTypes.STRING,
       allowNull: false,
     },

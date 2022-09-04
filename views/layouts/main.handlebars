@@ -16,8 +16,8 @@
                 <a class="uk-link-text" href="/">iReadIt</a>
             </h1>
 
-            <nav>
-                <ul class="uk-breadcrumb">
+            <nav class= "uk-breadcrumbs">
+                <ul class="uk-navbar-center">
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="/login">Login</a></li>
@@ -29,10 +29,12 @@
         <main>
             {{{body}}}
         </main>
-        <footer>
+        <footer uk-sticky="position: bottom">
             Copyright 2022
         </footer>
     </div>
 </body>
+{{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
+{{/if}}
 </html>

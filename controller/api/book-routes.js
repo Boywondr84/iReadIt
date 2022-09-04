@@ -7,7 +7,7 @@ const { User, Book, Review } = require("../../models");
 router.get("/", (req, res) => {
   Book.findAll({
     order: [["title", "ASC"]],
-    attributes: ["id", "title", "user_id", "created_at"],
+    attributes: ["id", "title", "user_id", "author", "created_at"],
     include: [
       {
         model: User,
@@ -35,6 +35,9 @@ router.post("/", (req, res) => {
   Book.create({
     title: req.body.title,
     user_id: req.session.user_id
+    author: req.body.author,
+   
+
   })
     .then((dbData) => res.json(dbData))
     .catch((err) => {
@@ -43,13 +46,13 @@ router.post("/", (req, res) => {
     });
 });
 
-//get ONE book by id **try Axios syntax with this? ?("/:id", params: {id})
+//get ONE book by id
 router.get("/:id", (req, res) => {
   Book.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "user_id", "created_at"],
+    attributes: ["id", "title", "author", "user_id", "created_at"],
     include: [
       {
         model: Review,
@@ -78,11 +81,14 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//edit book entry? may not be neeeded.
+//edit book entry? may not be neeeded...
 router.put("/:id", (req, res) => {
   Book.update(
     {
       title: req.body.title,
+    },
+    {
+      author: req.body.author,
     },
     {
       where: {

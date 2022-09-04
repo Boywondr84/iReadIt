@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* * {
     box-sizing: border-box;
   }
@@ -61,3 +62,90 @@
   .user-info {
 
   } */ 
+=======
+h1 {
+    text-align: center;
+    color: rgb(66, 113, 234);
+}
+
+.uk-breadcrumb {
+    text-align: center;
+    margin-top: 43px;
+}
+
+.uk-breadcrumb a {
+    font-size: 22px;
+    margin-right: 50px;
+    color: rgb(85, 93, 101);
+}
+
+.uk-button {
+    color: rgb(195, 65, 45);
+    font-size: 16.5px;
+}
+
+.uk-cover-container {
+    margin-top: 80px;
+    height: 280px;
+    width: auto;
+}
+
+h2 {
+    margin-left: 9%;
+    margin-top: 20px;
+}
+/* login form */
+.login-form {
+    margin-left: 8.5%;
+    height: 120px;
+    margin-bottom: 200px;
+    margin-right: 12%;
+}
+
+.login-form label {
+    font-size: 27px;
+}
+
+#email-login {
+    margin: 10px 12px 20px 12px;
+}
+
+#password-login {
+    margin: 10px 12px 20px 12px;
+}
+
+#button-login {
+    color:rgb(66, 113, 234);
+    font-size: 23px;
+    margin-left: 12px;
+}
+
+/* signup form */
+.signup-form {
+    margin-left: 8.5%;
+    height: 120px;
+    margin-bottom: 200px;
+    margin-right: 12%;
+}
+
+.signup-form label {
+    font-size: 27px;
+}
+
+#username-signup {
+    margin: 10px 12px 20px 12px;
+}
+
+#email-signup {
+    margin: 10px 12px 20px 12px;
+}
+
+#password-signup {
+    margin: 10px 12px 20px 12px;
+}
+
+footer {
+    margin-left: 3%;
+    margin-top: 3%;
+}
+>>>>>>> c3ab56d5829ae4031487b84e5a51234e40c0afdf

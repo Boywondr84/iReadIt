@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Book,
-        attributes: ["title"],
+        attributes: ["title", "author"],
       },
       {
         model: User,
@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Book,
-        attributes: ["title"],
+        attributes: ["title", "author"],
       },
       {
         model: User,

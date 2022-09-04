@@ -1,7 +1,8 @@
 <!--login form-->
-<section>
+<section class="uk-flex-inline">
     <h2>Login...</h2>
     <form class="login-form">
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
         <div>
             <label for="email-login">Email:</label>
             <input type="text" id="email-login" name="e-login"/>
@@ -13,16 +14,16 @@
         </div>
 
         <div>
-            <button type="submit">Login</button>
+            <button class="uk-button uk-button-link uk-button-large" id="button-login" type="submit">Login</button>
         </div>
-
+        </div>
     </form>
-</section>
 
 <!--signup form-->
-<section>
+
     <h2>Signup...</h2>
     <form class="signup-form">
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
         <div>
             <label for="username-signup">Username:</label>
             <input type="text" id="username-signup" name="username"/>
@@ -39,10 +40,18 @@
         </div>
 
         <div>
-            <button type="submit">Signup</button>
-        </div>
 
+
+
+            <button class="uk-button uk-button-link" type="submit" id="signup-btn">Signup</button>
+
+        </div>
+        </div>
     </form>
 </section>
+
+<div class="uk-cover-container">
+        <img src="https://scholarlykitchen.sspnet.org/wp-content/uploads/2018/07/iStock-506432952.jpg" atl="" uk-cover>
+        </div>
 
 <script src="/javascript/login.js"></script>

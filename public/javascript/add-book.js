@@ -65,7 +65,7 @@
 //   }
   
 //   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
-=======
+
 async function bookFormHandler(event) {
     event.preventDefault();
 

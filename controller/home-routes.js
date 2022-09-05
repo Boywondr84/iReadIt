@@ -2,29 +2,6 @@ const router = require("express").Router();
 const { Book, Review, User } = require("../models");
 
 //get all books
-<<<<<<< HEAD
-router.get("/", (req, res) => {
-  Book.findAll({
-    attributes: ["id", "title", "user_id", "created_at"],
-    include: [
-      {
-        model: Review,
-        attributes: ["id", "review_text", "user_id", "book_id"],
-        include: {
-          model: User,
-          attrubutes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbBookData) => {
-      const books = dbBookData.map((book) => book.get({ plain: true }));
-      res.render("homepage", { books, loggedIn: req.session.loggedIn });
-=======
 router.get('/', (req, res) => {
     Book.findAll({
         attributes: [
@@ -82,7 +59,6 @@ router.get('/book/:id', (req,res) => {
                 attributes:['username']
             }
         ]
->>>>>>> 54c06c3a33b11fc747f4eb648c64b3702e299c6d
     })
     .catch((err) => {
       console.log(err);

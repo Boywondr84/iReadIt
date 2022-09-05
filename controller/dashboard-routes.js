@@ -5,7 +5,7 @@ const { Book, Review, User } = require('../models');
 router.get('/', (req, res) => {
     Book.findAll({
         where:{
-            user_id: req.session.id
+            user_id: req.session.user_id
         },
         attributes: [
             'id',

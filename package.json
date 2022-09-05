@@ -1,7 +1,7 @@
 {
   "name": "ireadit",
   "version": "1.0.0",
-  "description": "",
+  "description": "To create a full stack application using the MVC paradigm.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

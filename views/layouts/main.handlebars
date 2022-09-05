@@ -19,9 +19,12 @@
             <nav class= "uk-breadcrumbs">
                 <ul class="uk-navbar-center">
                 <li><a href="/">Home</a></li>
+                {{#if loggedIn}}
                 <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/login">Login</a></li>
                 <li><button class="uk-button uk-button-text" id="submit">Logout</button></li>
+                {{else}}
+                 <li><a href="/login">Login</a></li>
+                {{/if}}
                 </ul>
             </nav>
         </header>

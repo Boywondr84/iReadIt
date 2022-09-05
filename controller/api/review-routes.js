@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const { User, Book, Review } = require("../../models");
-// const withAuth = require("../../utils/auth");
+const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
   Review.findAll({
@@ -55,9 +55,9 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   //check session
-    // if (req.session) {
+  // if (req.session) {
   Review.create({
     review_text: req.body.review_text,
     //use user_id from the session..??
@@ -73,7 +73,7 @@ router.post("/", (req, res) => {
 });
 
 //edit your review with .put?
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Review.update(
     {
       review_text: req.body.review_text,
@@ -97,7 +97,7 @@ router.put("/:id", (req, res) => {
 });
 
 //delete review
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Review.destroy({
     where: {
       id: req.params.id,

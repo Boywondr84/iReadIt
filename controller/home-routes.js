@@ -1,7 +1,30 @@
-const router = require('express').Router();
-const { Book, Review, User } = require('../models');
+const router = require("express").Router();
+const { Book, Review, User } = require("../models");
 
 //get all books
+<<<<<<< HEAD
+router.get("/", (req, res) => {
+  Book.findAll({
+    attributes: ["id", "title", "user_id", "created_at"],
+    include: [
+      {
+        model: Review,
+        attributes: ["id", "review_text", "user_id", "book_id"],
+        include: {
+          model: User,
+          attrubutes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbBookData) => {
+      const books = dbBookData.map((book) => book.get({ plain: true }));
+      res.render("homepage", { books, loggedIn: req.session.loggedIn });
+=======
 router.get('/', (req, res) => {
     Book.findAll({
         attributes: [
@@ -59,29 +82,57 @@ router.get('/book/:id', (req,res) => {
                 attributes:['username']
             }
         ]
+>>>>>>> 54c06c3a33b11fc747f4eb648c64b3702e299c6d
     })
-    .then(dbBookData => {
-        if(!dbBookData){
-            res.status(404).json({message: 'No book found with this id.'})
-            return;
-        }
-        const book = dbBookData.get({ plain:true});
-
-        res.render('single-book', {book})
-    })
-    .catch(err =>{
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
-router.get('/login', (req, res) => {
-    // if (req.session.loggedIn) {
-    //     res.redirect('/');
-    //     return;
-    // }
-    res.render('login');
+//singlebook page render
+router.get("/book/:id", (req, res) => {
+  Book.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "title", "user_id", "created_at"],
+    include: [
+      {
+        model: Review,
+        attributes: ["id", "review_text", "user_id", "book_id"],
+        include: {
+          model: User,
+          attrubutes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbBookData) => {
+      if (!dbBookData) {
+        res.status(404).json({ message: "No book found with this id." });
+        return;
+      }
+      const book = dbBookData.get({ plain: true });
+
+      res.render("single-book", { book, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
+router.get("/login", (req, res) => {
+  // if (req.session.loggedIn) {
+  //     res.redirect('/');
+  //     return;
+  // }
+  res.render("login");
+});
 
 module.exports = router;

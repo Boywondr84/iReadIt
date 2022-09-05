@@ -5,7 +5,7 @@ const { User, Book, Review } = require("../../models");
 
 router.get("/", (req, res) => {
   Review.findAll({
-    attributes: ["id", "review_text", "user_id", "book_id"],
+    attributes: ["id", "review_text", "user_id", "book_id", "created_at"],
     include: [
       {
         model: Book,
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "review_text", "user_id", "book_id"],
+    attributes: ["id", "review_text", "user_id", "book_id", "created_at"],
     include: [
       {
         model: Book,

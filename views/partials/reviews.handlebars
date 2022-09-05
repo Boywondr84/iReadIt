@@ -2,7 +2,7 @@
     {{#each this}}
     <section class="review">
     <div class="meta">
-      {{user.username}} on {{created_at}}
+      By {{user.username}} on {{format_date created_at}}
     </div>
     <div class="text">
       {{review_text}}

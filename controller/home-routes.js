@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         include:[
             {
             model: Review,
-            attributes:['id', 'review_text', 'user_id', 'book_id'],
+            attributes:['id', 'review_text', 'user_id', 'book_id', 'created_at'],
             include:{
                 model:User,
                 attrubutes:['username']
@@ -48,7 +48,7 @@ router.get('/book/:id', (req,res) => {
         include:[
             {
             model: Review,
-            attributes:['id', 'review_text', 'user_id', 'book_id'],
+            attributes:['id', 'review_text', 'user_id', 'book_id', 'created_at'],
             include:{
                 model:User,
                 attrubutes:['username']

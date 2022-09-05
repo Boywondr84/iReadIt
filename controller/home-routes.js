@@ -36,6 +36,7 @@ router.get('/', (req, res) => {
     });
 });
 
+
 //singlebook page render
 router.get("/book/:id", (req, res) => {
   Book.findOne({

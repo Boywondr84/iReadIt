@@ -1,5 +1,3 @@
-
-
 async function bookFormHandler(event) {
   event.preventDefault();
 
@@ -8,21 +6,23 @@ async function bookFormHandler(event) {
     .querySelector('input[name="author-name"]')
     .value.trim();
 
-  const response = await fetch("/api/books", {
-    method: "POST",
-    body: JSON.stringify({
-      title,
-      author,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  if (title && author) {
+    const response = await fetch("/api/books", {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        author,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  if (response.ok) {
-    document.location.replace("/dashboard");
-  } else {
-    alert(response.statusText);
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    } else {
+      alert(response.statusText);
+    }
   }
 }
 

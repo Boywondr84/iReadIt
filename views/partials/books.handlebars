@@ -4,8 +4,8 @@
        </div>
 
         <div class="user-info">
-        created by {{user.username}} on {{created_at}}
+        created by {{user.username}} on {{format_date created_at}}
          </div>
          |
-       <a href="/book/{{id}}">{{reviews.length}} review(s)</a>
+       <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
     </article>

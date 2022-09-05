@@ -3,6 +3,10 @@ h1 {
     color: rgb(66, 113, 234);
 }
 
+h1:hover {
+  color: rgb(195, 65, 45); 
+}
+
 .uk-breadcrumb {
     text-align: center;
     margin-top: 43px;
@@ -13,7 +17,7 @@ h1 {
 .uk-breadcrumb a {
     font-size: 22px;
     margin-right: 50px;
-    color: rgb(85, 93, 101);
+    color: rgb(66, 113, 234);
 }
 
 .uk-button {
@@ -144,3 +148,15 @@ footer {
 /* .uk-card {
   color:blue
 } */
+
+/* header:hover {
+  color: rgb(195, 65, 45); 
+}  */
+
+/* .uk-navbar-center:hover {
+  background-color: yellowgreen;
+} */
+
+li a:hover {
+  font-size: larger;
+}

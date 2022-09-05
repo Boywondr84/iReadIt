@@ -9,3 +9,5 @@ router.use("/books", bookRoutes);
 router.use("/reviews", reviewRoutes);
 
 module.exports = router;
+
+

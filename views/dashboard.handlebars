@@ -24,9 +24,9 @@
         </form>
     </section>
     <ul>
-        {{#each books}}
+        {{#each books as |book|}}
         <li>
-            {{>books}}
+            {{>books book}}
 
         </li>
         {{/each}}

@@ -8,7 +8,7 @@ const { User, Book, Review } = require("../../models");
 router.get("/", (req, res) => {
   Book.findAll({
     order: [["title", "ASC"]],
-    attributes: ["id", "title", "user_id", "author", "created_at"],
+    attributes: ["id", "title", "author", "user_id", "created_at"],
     include: [
       {
         model: User,

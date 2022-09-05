@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Book,
-        attributes: ["title"],
+        attributes: ["title", "author"],
       },
       {
         model: User,
@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Book,
-        attributes: ["title"],
+        attributes: ["title", "author"],
       },
       {
         model: User,
@@ -57,7 +57,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   //check session
-  //   if (req.session) {
+    // if (req.session) {
   Review.create({
     review_text: req.body.review_text,
     //use user_id from the session..??
@@ -69,6 +69,7 @@ router.post("/", (req, res) => {
       console.log(err);
       res.status(400).json(err);
     });
+  // }
 });
 
 //edit your review with .put?

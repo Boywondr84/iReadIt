@@ -15,26 +15,13 @@
                     <input type="text" id="author-name" name="author-name" />
                 </div>
             </div>
-        </form>
 
             <div>
-                <button class="uk-button uk-button-link uk-button-large" id="book-button" type="submit"><a href="/dashboard/"> + Add A Book</button></a>
+                <button class="uk-button uk-button-link uk-button-large" id="book-button" type="submit">+ Add A
+                    Book</button>
                 {{!-- <a href="/dashboard/" class="add-link" id="add-book">+ Add A Book</a> --}}
             </div>
-
-        {{!-- Reviews on a differenct page? --}}
-        {{!-- <form class="review-form">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <div>
-                    <p><label for="book-review" class="book-review">Review</label></p>
-                    <textarea id="book-review" name="book-review" rows="6" columns="60"></textarea>
-                </div>
-            </div>
-        </form> --}}
-
-        {{!-- <form class="book-button">
-            <button class="uk-button uk-button-text uk-button-large" type="submit" class="book-btn">Add Book</button>
-        </form> --}}
+        </form>
     </section>
     <ul>
         {{#each books as |book|}}

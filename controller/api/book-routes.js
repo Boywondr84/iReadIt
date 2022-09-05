@@ -1,7 +1,8 @@
 const router = require("express").Router();
-
+const withAuth = require("../../utils/auth");
 const { User, Book, Review } = require("../../models");
-// const withAuth = require("../../utils/auth");
+
+// add 'upvote' route here withAuth as well...
 
 // get all books
 router.get("/", (req, res) => {
@@ -31,14 +32,11 @@ router.get("/", (req, res) => {
 });
 
 //create a book
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   Book.create({
     title: req.body.title,
     user_id: req.session.user_id,
     author: req.body.author,
-
-
-
   })
     .then((dbData) => res.json(dbData))
     .catch((err) => {
@@ -83,7 +81,7 @@ router.get("/:id", (req, res) => {
 });
 
 //edit book entry? may not be neeeded...
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Book.update(
     {
       title: req.body.title,
@@ -111,7 +109,7 @@ router.put("/:id", (req, res) => {
 });
 
 //delete a book from the library.  ie, it was banned.
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Book.destroy({
     where: {
       id: req.params.id,

@@ -8,29 +8,29 @@ Upvote.init(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
-      },
+        key: "id"
+      }
     },
     book_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "book",
-        key: "id",
-      },
-    },
+        key: "id"
+      }
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "upvote",
+    modelName: "upvote"
   }
 );
 

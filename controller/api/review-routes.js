@@ -88,6 +88,7 @@ router.put("/:id", withAuth, (req, res) => {
     .then((dbData) => {
       if (!dbData) {
         res.status(404).json({ message: "no review exists with this id" });
+        return;
       }
       res.json(dbData);
     })
@@ -98,15 +99,21 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 //delete review
+<<<<<<< HEAD
 router.delete("/:id", (req, res) => {
+=======
+router.delete("/:id", withAuth, (req, res) => {
+  console.log(req.body);
+>>>>>>> 327be85235299a5cf07695308da687f35222ef57
   Review.destroy({
     where: {
-      id: req.params.id,
-    },
+      id: req.params.id
+    }
   })
     .then((dbData) => {
       if (!dbData) {
         res.status(404).json({ message: "no review with that id found!" });
+        return;
       }
       res.json(dbData);
     })

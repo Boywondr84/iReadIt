@@ -1,14 +1,26 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { User, Book, Review } = require("../../models");
+const { User, Book, Review, Upvote } = require("../../models");
 
 // add 'upvote' route here withAuth as well...
 
-// get all books
+// get all books( with custom 'upvote count' added to attributes..)**
 router.get("/", (req, res) => {
   Book.findAll({
     order: [["title", "ASC"]],
-    attributes: ["id", "title", "author", "user_id", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "author",
+      "user_id",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
+        ),
+        "upvote_count",
+      ],
+    ],
     include: [
       {
         model: User,
@@ -45,7 +57,7 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-//get ONE book by id
+//get ONE book by id ( with custom 'upvote count' added to attributes..)**
 router.get("/:id", (req, res) => {
   Book.findOne({
     where: {
@@ -57,12 +69,12 @@ router.get("/:id", (req, res) => {
       "author",
       "user_id",
       "created_at",
-      // [
-      //   sequelize.literal(
-      //     "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
-      //   ),
-      //   "upvote_count",
-      // ],
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
+        ),
+        "upvote_count",
+      ],
     ],
     include: [
       {
@@ -118,6 +130,22 @@ router.put("/:id", withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// PUT /api/books/upvote**
+router.put("/upvote", (req, res) => {
+  // ".upvote" is a custom static method created in models/Book.js
+  if (req.session) {
+    Book.upvote(
+      { ...req.body, user_id: req.session.user_id },
+      { Upvote, Review, User }
+    )
+      .then((updatedVoteData) => res.json(updatedVoteData))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 });
 
 //delete a book from the library.  ie, it was banned.

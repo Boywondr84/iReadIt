@@ -1,10 +1,22 @@
 const router = require("express").Router();
 const { Book, Review, User } = require("../models");
 
-//get all books
+//get all books  (WITH the 'upvote count' in attributes)**
 router.get("/", (req, res) => {
   Book.findAll({
-    attributes: ["id", "title", "author", "user_id", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "author",
+      "user_id",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
+        ),
+        "upvote_count",
+      ],
+    ],
     include: [
       {
         model: Review,
@@ -30,13 +42,25 @@ router.get("/", (req, res) => {
     });
 });
 
-//singlebook page render
+//singlebook page render (WITH the 'upvote count' in attributes)**
 router.get("/book/:id", (req, res) => {
   Book.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "author", "user_id", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "author",
+      "user_id",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
+        ),
+        "upvote_count",
+      ],
+    ],
     include: [
       {
         model: Review,

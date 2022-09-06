@@ -2,37 +2,67 @@
 const User = require("./User");
 const Book = require("./Book");
 const Review = require("./Review");
-// const Upvote = require("./Upvote");
+const Upvote = require("./Upvote");
 // const Downvote = require("./Downvote");
 
 Review.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 User.hasMany(Review, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 Review.belongsTo(Book, {
   foreignKey: "book_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 Book.hasMany(Review, {
   foreignKey: "book_id",
-  onDelete: "SET NULL"
 });
 
 User.hasMany(Book, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
 });
 
 Book.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
-module.exports = { User, Book, Review };
+User.belongsToMany(Book, {
+  through: Upvote,
+  as: "voted_books",
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
+});
+
+Book.belongsToMany(User, {
+  through: Upvote,
+  as: "voted_books",
+  foreignKey: "book_id",
+  onDelete: "SET NULL",
+});
+
+Upvote.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
+});
+
+Upvote.belongsTo(Book, {
+  foreignKey: "book_id",
+  onDelete: "SET NULL",
+});
+
+User.hasMany(Upvote, {
+  foreignKey: "user_id",
+});
+
+Book.hasMany(Upvote, {
+  foreignKey: "book_id",
+});
+
+module.exports = { User, Book, Review, Upvote };

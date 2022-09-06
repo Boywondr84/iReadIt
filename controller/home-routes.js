@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../config/connection");
 const { Book, Review, User } = require("../models");
 
 //get all books  (WITH the 'upvote count' in attributes)**

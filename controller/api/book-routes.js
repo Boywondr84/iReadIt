@@ -1,8 +1,7 @@
 const router = require("express").Router();
+const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 const { User, Book, Review, Upvote } = require("../../models");
-
-// add 'upvote' route here withAuth as well...
 
 // get all books( with custom 'upvote count' added to attributes..)**
 router.get("/", (req, res) => {
@@ -132,7 +131,7 @@ router.put("/:id", withAuth, (req, res) => {
     });
 });
 
-// PUT /api/books/upvote**
+// PUT /api/books/upvote** from javascript/book-votes.js
 router.put("/upvote", (req, res) => {
   // ".upvote" is a custom static method created in models/Book.js
   if (req.session) {

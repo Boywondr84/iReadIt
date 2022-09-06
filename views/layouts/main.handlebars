@@ -13,12 +13,14 @@
     <div>
         <header>
             <h1>
-                <a class="uk-link-text " href="/">iReadIt</a>
+                
+                <a class="uk-link-text" href="/">iReadIt</a>
+               
             </h1>
 
             <nav class= "uk-breadcrumbs">
                 <ul class="uk-navbar-center">
-                <li><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>  
                 {{#if loggedIn}}
                 <li><a href="/dashboard">Dashboard</a></li>
                 <li><button class="uk-button uk-button-text" id="submit">Logout</button></li>
@@ -32,7 +34,7 @@
         <main>
             {{{body}}}
         </main>
-        <footer uk-sticky="position: bottom">
+        <footer class="position: bottom">
             Copyright 2022
         </footer>
     </div>

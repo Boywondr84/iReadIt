@@ -2,46 +2,39 @@ const router = require("express").Router();
 const { Book, Review, User } = require("../models");
 
 //get all books
-router.get('/', (req, res) => {
-    Book.findAll({
-        attributes: [
-            'id',
-            'title',
-            'author',
-            'user_id',
-            'created_at'
-        ],
-        include:[
-            {
-            model: Review,
-            attributes:['id', 'review_text', 'user_id', 'book_id', 'created_at'],
-            include:{
-                model:User,
-                attrubutes:['username']
-            }
-            },
-            {
-                model:User,
-                attributes:['username']
-            }
-        ]
+router.get("/", (req, res) => {
+  Book.findAll({
+    attributes: ["id", "title", "author", "user_id", "created_at"],
+    include: [
+      {
+        model: Review,
+        attributes: ["id", "review_text", "user_id", "book_id", "created_at"],
+        include: {
+          model: User,
+          attrubutes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbBookData) => {
+      const books = dbBookData.map((book) => book.get({ plain: true }));
+      res.render("homepage", { books, loggedIn: req.session.loggedIn });
     })
-    .then(dbBookData => {
-        const books = dbBookData.map(book => book.get({plain: true}));
-        res.render('homepage', {books})
-    })
-    .catch(err =>{
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
-
 
 //singlebook page render
 router.get("/book/:id", (req, res) => {
   Book.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
     attributes: ["id", "title", "author", "user_id", "created_at"],
     include: [
@@ -59,7 +52,7 @@ router.get("/book/:id", (req, res) => {
       },
     ],
   })
-    .then(dbBookData => {
+    .then((dbBookData) => {
       if (!dbBookData) {
         res.status(404).json({ message: "No book found with this id." });
         return;

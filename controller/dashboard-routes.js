@@ -33,6 +33,5 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-//if we have an edit dashboard route use withAuth??
 
 module.exports = router;

@@ -2,7 +2,7 @@
 
 async function deleteFormHandler(event) {
     event.preventDefault();
-  
+const book_id = document.querySelector('#save-btn').dataset.book;
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
@@ -11,11 +11,11 @@ async function deleteFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard/');
+      document.location.replace(`/book/${book_id}`);
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('.delete-review-btn').addEventListener('click', deleteFormHandler);
+  document.querySelector('#delete-btn').addEventListener('click', deleteFormHandler);
 

@@ -55,6 +55,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//create new review..
 router.post("/", withAuth, (req, res) => {
   //check session
   // if (req.session) {
@@ -72,7 +73,7 @@ router.post("/", withAuth, (req, res) => {
   // }
 });
 
-//edit your review with .put?
+//edit your review text with .put
 router.put("/:id", withAuth, (req, res) => {
   Review.update(
     {
@@ -102,8 +103,8 @@ router.delete("/:id", withAuth, (req, res) => {
   console.log(req.body);
   Review.destroy({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then((dbData) => {
       if (!dbData) {

@@ -1,5 +1,5 @@
-// const { Model, DataTypes } = require("sequelize");
-// const sequelize = require("../config/connection");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Upvote extends Model {}
 
@@ -12,7 +12,6 @@ Upvote.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "user",
         key: "id"
@@ -20,7 +19,6 @@ Upvote.init(
     },
     book_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "book",
         key: "id"
@@ -36,4 +34,4 @@ Upvote.init(
   }
 );
 
-// module.exports = Upvote;
+module.exports = Upvote;

@@ -55,6 +55,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//create new review..
 router.post("/", withAuth, (req, res) => {
   //check session
   // if (req.session) {
@@ -72,7 +73,7 @@ router.post("/", withAuth, (req, res) => {
   // }
 });
 
-//edit your review with .put?
+//edit your review text with .put
 router.put("/:id", withAuth, (req, res) => {
   Review.update(
     {
@@ -97,7 +98,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 //delete review
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id", (req, res) => {
   Review.destroy({
     where: {
       id: req.params.id,

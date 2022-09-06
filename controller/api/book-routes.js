@@ -51,7 +51,19 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "author", "user_id", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "author",
+      "user_id",
+      "created_at",
+      // [
+      //   sequelize.literal(
+      //     "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
+      //   ),
+      //   "upvote_count",
+      // ],
+    ],
     include: [
       {
         model: Review,

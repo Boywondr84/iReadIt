@@ -3,9 +3,9 @@ h1 {
     color: rgb(66, 113, 234);
 }
 
-h1:hover {
+/* h1:hover {
   color: rgb(195, 65, 45); 
-}
+} */
 
 .uk-breadcrumb {
     text-align: center;
@@ -114,10 +114,11 @@ h2 {
 }
 
 #book-button {
-    margin-top: 75px;
+    margin-top: 50px;
     color:rgb(66, 113, 234);
     font-size: 23px;
     margin-left: 12px;
+    margin-bottom: 50px;
 }
 
 #book-button a {
@@ -149,9 +150,11 @@ footer {
   color:blue
 } */
 
-/* header:hover {
-  color: rgb(195, 65, 45); 
-}  */
+header {
+  position: sticky ;
+  top: 0;
+  background-color: white;
+} 
 
 /* .uk-navbar-center:hover {
   background-color: yellowgreen;
@@ -190,3 +193,19 @@ li a:hover {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* books partial  */
+
+.book-title {
+
+margin-left: 20px;
+} 
+
+.user-info {
+margin-left: 20px;
+}  
+/* 
+.book {
+  margin-left: 20px;
+} */
+

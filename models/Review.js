@@ -11,35 +11,35 @@ Review.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     review_text: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [2],
-      },
+        len: [2]
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
-      },
+        key: "id"
+      }
     },
     book_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "book",
-        key: "id",
-      },
-    },
+        key: "id"
+      }
+    }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "review",
+    modelName: "review"
   }
 );
 

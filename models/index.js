@@ -7,38 +7,30 @@ const Upvote = require("./Upvote");
 
 Review.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 User.hasMany(Review, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 Review.belongsTo(Book, {
   foreignKey: "book_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 Book.hasMany(Review, {
   foreignKey: "book_id",
-<<<<<<< HEAD
-=======
-  onDelete: "SET NULL"
->>>>>>> 327be85235299a5cf07695308da687f35222ef57
 });
 
 User.hasMany(Book, {
   foreignKey: "user_id",
-<<<<<<< HEAD
-=======
-  onDelete: "SET NULL"
->>>>>>> 327be85235299a5cf07695308da687f35222ef57
 });
 
 Book.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL"
+  onDelete: "SET NULL",
 });
 
 User.belongsToMany(Book, {

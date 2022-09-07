@@ -18,6 +18,8 @@ async function upvoteHandler(event) {
     document.location.reload();
   } else {
     alert(response.statusText);
+    const resp = await response.json()
+    console.log(resp)
   }
 }
 

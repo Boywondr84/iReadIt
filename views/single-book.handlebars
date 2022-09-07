@@ -3,6 +3,7 @@
 {{>reviews book.reviews}}
 <!--review form-->
 
+{{#if loggedIn}}
 <form class="review-form">
     <div>
         <textarea name="review-body"></textarea>
@@ -10,14 +11,14 @@
 
     <div>
         <button type="submit">Add review</button>
-       <button type="click" id="upvote-btn">Upvote book</button>
-          <button type="click" id="downvote-btn">Downvote book</button>
+        <button type="button" id="upvote-btn">Upvote book</button>
     </div>
 </form>
+{{/if}}
 
 <div class="uk-cover-container">
-        <img src="https://cdn.pixabay.com/photo/2015/10/09/08/45/book-978888_1280.jpg" atl="" uk-cover>
-        </div>
+    <img src="https://cdn.pixabay.com/photo/2015/10/09/08/45/book-978888_1280.jpg" atl="" uk-cover>
+</div>
 
 
 <script src="/javascript/review.js"></script>

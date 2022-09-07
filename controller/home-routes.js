@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Book, Review, User } = require("../models");
+// Module 14 has the vote here even though it is unused, adding just in case?- Cy
+const { Book, Review, User, Vote } = require("../models");
 
 //get all books  (WITH the 'upvote count' in attributes)**
 router.get("/", (req, res) => {
@@ -11,12 +12,7 @@ router.get("/", (req, res) => {
       "author",
       "user_id",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
-        ),
-        "upvote_count",
-      ],
+      [sequelize.literal("(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"), "upvote_count"]
     ],
     include: [
       {
@@ -24,14 +20,14 @@ router.get("/", (req, res) => {
         attributes: ["id", "review_text", "user_id", "book_id", "created_at"],
         include: {
           model: User,
-          attrubutes: ["username"],
-        },
+          attrubutes: ["username"]
+        }
       },
       {
         model: User,
-        attributes: ["username"],
-      },
-    ],
+        attributes: ["username"]
+      }
+    ]
   })
     .then((dbBookData) => {
       const books = dbBookData.map((book) => book.get({ plain: true }));
@@ -55,12 +51,7 @@ router.get("/book/:id", (req, res) => {
       "author",
       "user_id",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
-        ),
-        "upvote_count",
-      ],
+      [sequelize.literal("(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"), "upvote_count"]
     ],
     include: [
       {
@@ -68,23 +59,26 @@ router.get("/book/:id", (req, res) => {
         attributes: ["id", "review_text", "user_id", "book_id", "created_at"],
         include: {
           model: User,
-          attrubutes: ["username"],
-        },
+          attrubutes: ["username"]
+        }
       },
       {
         model: User,
-        attributes: ["username"],
-      },
-    ],
+        attributes: ["username"]
+      }
+    ]
   })
-    .then((dbBookData) => {
+    .then(dbBookData => {
       if (!dbBookData) {
         res.status(404).json({ message: "No book found with this id." });
         return;
       }
       const book = dbBookData.get({ plain: true });
 
-      res.render("single-book", { book, loggedIn: req.session.loggedIn });
+      res.render("single-book", { 
+        book, 
+        loggedIn: req.session.loggedIn 
+      });
     })
     .catch((err) => {
       console.log(err);

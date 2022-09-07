@@ -198,7 +198,7 @@ li a:hover {
   left: 0;
   background-color: rgb(66, 113, 234);
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.99s ease-out;
 }
 
 .hover-underline-animation:hover:after {
@@ -232,9 +232,7 @@ opacity: .6;
 } */
 
 .single-page-buttons {
-  display: block;
-
-  padding: 50px;
+  margin: 20px;
 
 
 }
@@ -242,6 +240,17 @@ opacity: .6;
 
 .edit-review-form {
   margin-left: 20px;
+  
+}
+
+#add-review-btn, #downvote-btn, #upvote-btn  {
+  margin: 20px;
+ 
+}
+
+
+.edit-review-content {
+  margin: 20px;
 }
 
 .thumb-icon{
@@ -251,3 +260,28 @@ opacity: .6;
     margin-right:10px;
 }
 
+.book {
+  padding: 20px;
+}
+
+/* body {
+  background-image: url("../../images/pexels-ivo-rainha-1261180.jpg");
+  background-color: #cccccc;
+ } */
+
+ .review {
+  margin: 20px;
+ }
+
+ #save-btn {
+  margin: 20px;
+ }
+
+ #delete-btn {
+  margin: 20px;
+ }
+
+ textarea {
+  width: 550px;
+  height: 100px;
+}

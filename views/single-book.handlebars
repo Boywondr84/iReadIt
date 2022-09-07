@@ -1,6 +1,8 @@
 <!--book partial-->
+
 <div class="books-and-reviews uk-card "> 
 {{>books book}}
+
 {{>reviews book.reviews}}
 </div> 
 <!--review form-->
@@ -10,13 +12,14 @@
         <textarea rows="20" columns="20" name="review-body"></textarea>
     </div>
 
+
     <div class="single-page-buttons">
        <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="submit">Add review</button>
        <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="click" id="upvote-btn">Upvote book</button>
        <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="click" id="downvote-btn">Downvote book</button>
+
     </div>
 </form>
-
 <div class="uk-cover-container">
         <img src="https://cdn.pixabay.com/photo/2015/10/09/08/45/book-978888_1280.jpg" atl="" uk-cover>
         </div>

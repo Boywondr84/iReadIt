@@ -1,13 +1,14 @@
-<article class="book uk-card uk-card-default  ">
-  <div class="book-title ">
-    {{title}} by {{author}}
-  </div>
-  <div class="user-info">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-    |
-    <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
-  </div>
-</article>
 
-{{!-- how it was originally  --}}
-    {{!-- <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>  --}}
+<article class="book uk-card uk-card-default">
+        <div class="book-title ">
+       {{title}} by {{author}} <span class="thumb-icon"><img src="../../images/thumb.png" ></span> {{vote_count}} 
+       </div>
+
+        <div class="user-info">
+        created by {{user.username}} on {{format_date created_at}}
+        
+        <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+         </div>
+         |
+    </article>
+

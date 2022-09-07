@@ -161,7 +161,7 @@ footer {
 } */
 
 header {
-  /* position: sticky ; */
+  /* position: sticky ;  */
   top: 0;
   background-color: white;
   
@@ -282,6 +282,11 @@ opacity: .6;
  }
 
  textarea {
-  width: 550px;
+  width: 450px;
   height: 100px;
+}
+
+#review-to-edit {
+ width: 300px;
+
 }

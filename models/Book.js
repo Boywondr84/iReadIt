@@ -18,29 +18,18 @@ class Book extends Model {
           "id",
           "title",
           "created_at",
-          [
-            sequelize.literal(
-              "(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"
-            ),
-            "upvote_count",
-          ],
+          [sequelize.literal("(SELECT COUNT(*) FROM upvote WHERE book.id = upvote.book_id)"), "upvote_count"]
         ],
         include: [
           {
             model: models.Review,
-            attributes: [
-              "id",
-              "review_text",
-              "book_id",
-              "user_id",
-              "created_at",
-            ],
+            attributes: ["id", "review_text", "book_id", "user_id", "created_at"],
             include: {
               model: models.User,
-              attributes: ["username"],
-            },
-          },
-        ],
+              attributes: ["username"]
+            }
+          }
+        ]
       });
     });
   }

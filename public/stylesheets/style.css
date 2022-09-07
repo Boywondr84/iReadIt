@@ -124,11 +124,11 @@ h2 {
 }
 
 #book-button {
-    margin-top: 50px;
+    margin-top: 10px; 
     color:rgb(66, 113, 234);
     font-size: 23px;
     margin-left: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 #book-button a {
@@ -164,6 +164,7 @@ header {
   /* position: sticky ; */
   top: 0;
   background-color: white;
+  
 } 
 
 /* .uk-navbar-center:hover {
@@ -171,7 +172,8 @@ header {
 } */
 
 li a:hover {
-  font-size: x-large;
+  /* font-size: x-large;  */
+  color: green;
  
 }
 
@@ -206,16 +208,33 @@ li a:hover {
 
 /* books partial  */
 
-.book-title {
+/* .book-title {
 
 margin-left: 20px;
 } 
 
 .user-info {
 margin-left: 20px;
+font-size: 90%;
+opacity: .6;
 }  
 /* 
 .book {
   margin-left: 20px;
 } */
 
+.books-and-reviews {
+  margin-left: 20px;
+}
+/* 
+.review-form {
+
+} */
+
+.single-page-buttons {
+  display: block;
+
+  padding: 50px;
+
+
+}

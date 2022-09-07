@@ -7,11 +7,11 @@ async function upvoteHandler(event) {
   const response = await fetch("/api/books/upvote", {
     method: "PUT",
     body: JSON.stringify({
-      book_id: id,
+      book_id: id
     }),
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   });
 
   if (response.ok) {

@@ -1,12 +1,10 @@
-
 <article class="book uk-card ">
-        <div class="book-title ">
-       {{title}} by {{author}} <span class="thumb-icon"><img class="thumb-img" src="../../images/thumb.png" width="20" height="20" >{{upvote_count}}</span>  
-       </div>
-
-        <div class="user-info">
-        created by {{user.username}} on {{format_date created_at}}
-        
-        <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
-         </div>
-    </article>
+  <div class="book-title ">
+    {{title}} by {{author}} <span class="thumb-icon"><img class="thumb-img" src="../../images/thumb.png" width="20" height="20" >{{upvote_count}}</span>  
+  </div>
+  <div class="user-info">
+    created by {{user.username}} on {{format_date created_at}}
+    |
+    <a href="/book/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+  </div>
+</article>

@@ -93,7 +93,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//edit book entry? may not be neeeded...
+// //edit book entry? may not be neeeded...
 // router.put("/:id", withAuth, (req, res) => {
 //   Book.update(
 //     {
@@ -122,15 +122,13 @@ router.get("/:id", (req, res) => {
 // });
 
 // PUT /api/books/upvote** from javascript/book-votes.js
-
 router.put("/upvote", (req, res) => {
-  console.log(req.body);
-
+  console.log("request body", req.body)
   // ".upvote" is a custom static method created in models/Book.js
   Book.upvote({ ...req.body, user_id: req.session.user_id }, { Upvote, Review, User })
-    .then((updatedVoteData) => res.json(updatedVoteData))
+    .then(updatedVoteData => res.json(updatedVoteData))
     .catch((err) => {
-      console.log(err);
+      console.error(err);
       res.status(500).json(err);
     });
 });

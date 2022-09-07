@@ -2,8 +2,9 @@
     <h2>Edit Review</h2>
     <form class="edit-review-form">
         <div class= "edit-review-content" >
-            <label>Content:</label>
-            <input name="review_text" type="text" value="{{review.review_text}}"/>
+            <label>Review:</label>
+            <input id= "review-to-edit" name="review_text" type="text" value="{{review.review_text}}"/>
+
         </div>
 
         <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-button-default" id="save-btn" data-book="{{review.book_id}}" type="submit">Save Edit</button>

@@ -1,31 +1,31 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-const { default: axios } = require("axios");
+// const { default: axios } = require("axios");
 
 //axios get user route
-axios({
-  url: "/api/users",
-  headers: { "Content-Type": "application/json" },
-})
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-// router.get("/", (req, res) => {
-//   User.findAll({
-//     attributes: {},
+// axios({
+//   url: "/api/users",
+//   headers: { "Content-Type": "application/json" },
+// })
+//   .then(function (response) {
+//     console.log(response.data);
 //   })
-//     .then((dbUserData) => {
-//       res.json(dbUserData);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+router.get("/", (req, res) => {
+  User.findAll({
+    attributes: {},
+  })
+    .then((dbUserData) => {
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 //post route to create new user .then sign them in to a session...
 router.post("/", (req, res) => {

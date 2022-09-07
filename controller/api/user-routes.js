@@ -2,18 +2,17 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const { default: axios } = require("axios");
 
-
-// axios get user route
+//axios get user route
 axios({
-  url: '/api/users',
-  headers: { 'Content-Type': 'application/json' }
+  url: "/api/users",
+  headers: { "Content-Type": "application/json" },
 })
-.then(function (response) {
-  console.log(response.data);
-})
-.catch(function (error) {
-  console.log(error);
-});
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
 // router.get("/", (req, res) => {
 //   User.findAll({

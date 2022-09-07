@@ -94,35 +94,38 @@ router.get("/:id", (req, res) => {
 });
 
 //edit book entry? may not be neeeded...
-router.put("/:id", withAuth, (req, res) => {
-  Book.update(
-    {
-      title: req.body.title,
-    },
-    {
-      author: req.body.author,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
-    .then((dbData) => {
-      if (!dbData) {
-        res.status(404).json({ message: "No bookfound with this id" });
-        return;
-      }
-      res.json(dbData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.put("/:id", withAuth, (req, res) => {
+//   Book.update(
+//     {
+//       title: req.body.title,
+//     },
+//     {
+//       author: req.body.author,
+//     },
+//     {
+//       where: {
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((dbData) => {
+//       if (!dbData) {
+//         res.status(404).json({ message: "No bookfound with this id" });
+//         return;
+//       }
+//       res.json(dbData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // PUT /api/books/upvote** from javascript/book-votes.js
-router.put("/upvote", withAuth,  (req, res) => {
+
+router.put("/upvote", (req, res) => {
+  console.log(req.body);
+
   // ".upvote" is a custom static method created in models/Book.js
   Book.upvote({ ...req.body, user_id: req.session.user_id }, { Upvote, Review, User })
     .then((updatedVoteData) => res.json(updatedVoteData))

@@ -15,18 +15,18 @@
             <h1>
                 
                 <a class="uk-link-text" href="/">iReadIt</a>
-               
+            
             </h1>
 
-            <nav class= "uk-breadcrumbs">
-                <ul class="uk-navbar-center">
-                <li><a href="/">Home</a></li>  
-                {{#if loggedIn}}
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><button class="uk-button uk-button-text" id="submit">Logout</button></li>
-                {{else}}
-                 <li><a href="/login">Login</a></li>
-                {{/if}}
+            <nav class="uk-breadcrumb">
+                <ul class="uk-iconnav">
+                    <li><a href="/" uk-icon="icon: home; ratio: 2"></a></li>
+                    {{#if loggedIn}}
+                    <li><a href="/dashboard" uk-icon="icon: user; ratio: 2"></a></li>
+                    <button id="submit">Logout</button>
+                    {{else}}
+                    <li><a href="/login" uk-icon="icon: sign-in; ratio: 2"></a></li>
+                    {{/if}}
                 </ul>
             </nav>
         </header>
@@ -42,4 +42,7 @@
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
 </html>

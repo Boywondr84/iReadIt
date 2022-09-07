@@ -1,24 +1,28 @@
 <!--book partial-->
+
+<div class="books-and-reviews uk-card "> 
 {{>books book}}
+
 {{>reviews book.reviews}}
+</div> 
 <!--review form-->
 
-{{#if loggedIn}}
 <form class="review-form">
     <div>
         <textarea name="review-body"></textarea>
     </div>
 
-    <div>
-        <button type="submit">Add review</button>
-        <button type="button" id="upvote-btn">Upvote book</button>
+
+    <div class="single-page-buttons">
+       <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="submit" id="add-review-btn">Add review</button>
+       <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="click" id="upvote-btn">Upvote book</button>
+       <button class="uk-button uk-button-link uk-button-large hover-underline-animation uk-inline uk-button-default" type="click" id="downvote-btn">Downvote book</button>
+
     </div>
 </form>
-{{/if}}
-
 <div class="uk-cover-container">
-    <img src="https://cdn.pixabay.com/photo/2015/10/09/08/45/book-978888_1280.jpg" atl="" uk-cover>
-</div>
+        <img src="https://cdn.pixabay.com/photo/2015/10/09/08/45/book-978888_1280.jpg" atl="" uk-cover>
+        </div>
 
 
 <script src="/javascript/review.js"></script>

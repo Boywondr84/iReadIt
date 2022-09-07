@@ -124,11 +124,11 @@ h2 {
 }
 
 #book-button {
-    margin-top: 50px;
+    margin-top: 10px; 
     color:rgb(66, 113, 234);
     font-size: 23px;
     margin-left: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 #book-button a {
@@ -164,6 +164,7 @@ header {
   /* position: sticky ; */
   top: 0;
   background-color: white;
+  
 } 
 
 /* .uk-navbar-center:hover {
@@ -171,7 +172,8 @@ header {
 } */
 
 li a:hover {
-  font-size: x-large;
+  /* font-size: x-large;  */
+  color: green;
  
 }
 
@@ -196,7 +198,7 @@ li a:hover {
   left: 0;
   background-color: rgb(66, 113, 234);
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.99s ease-out;
 }
 
 .hover-underline-animation:hover:after {
@@ -206,7 +208,7 @@ li a:hover {
 
 /* books partial  */
 
-.book-title {
+/* .book-title {
 
 margin-left: 20px;
 } 
@@ -221,3 +223,65 @@ opacity: .6;
   margin-left: 20px;
 } */
 
+.books-and-reviews {
+  margin-left: 20px;
+}
+/* 
+.review-form {
+
+} */
+
+.single-page-buttons {
+  margin: 20px;
+
+
+}
+
+
+.edit-review-form {
+  margin-left: 20px;
+  
+}
+
+#add-review-btn, #downvote-btn, #upvote-btn  {
+  margin: 20px;
+ 
+}
+
+
+.edit-review-content {
+  margin: 20px;
+}
+
+.thumb-icon{
+    padding: 10px;
+}
+.thumb-img{
+    margin-right:10px;
+}
+
+.book {
+  padding: 20px;
+}
+
+/* body {
+  background-image: url("../../images/pexels-ivo-rainha-1261180.jpg");
+  background-color: #cccccc;
+ } */
+
+ .review {
+  margin: 20px;
+ }
+
+ #save-btn {
+  margin: 20px;
+ }
+
+ #delete-btn {
+  margin: 20px;
+ }
+
+ textarea {
+  width: 550px;
+  height: 100px;
+}
